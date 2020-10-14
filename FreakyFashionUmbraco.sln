@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "FreakyFashionUmbraco.React", "FreakyFashionUmbraco.React\FreakyFashionUmbraco.React.njsproj", "{7946C3EC-FF61-4DC9-85C5-F857AFA34ACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreakyFashionUmbraco.API", "FreakyFashionUmbraco.API\FreakyFashionUmbraco.API.csproj", "{28B069F6-C109-42A7-8FE2-E568E04DB25A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7946C3EC-FF61-4DC9-85C5-F857AFA34ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7946C3EC-FF61-4DC9-85C5-F857AFA34ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7946C3EC-FF61-4DC9-85C5-F857AFA34ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7946C3EC-FF61-4DC9-85C5-F857AFA34ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B069F6-C109-42A7-8FE2-E568E04DB25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B069F6-C109-42A7-8FE2-E568E04DB25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B069F6-C109-42A7-8FE2-E568E04DB25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B069F6-C109-42A7-8FE2-E568E04DB25A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E21F166B-7492-4B81-8192-1A2235DA7185}
+	EndGlobalSection
+EndGlobal
