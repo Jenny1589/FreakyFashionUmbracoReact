@@ -64,11 +64,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.tsx">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="public\" />
     <Folder Include="src\" />
     <Folder Include="src\assets\" />
