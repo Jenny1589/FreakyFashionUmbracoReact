@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavLink from '../navlink/navlink';
+import Icon from '../icon/icon';
 import { services } from '../../../package.json';
-import '../../../node_modules/material-icons/iconfont/material-icons.css';
 
 class Navbar extends Component {
     state = { 
@@ -58,9 +58,7 @@ class Navbar extends Component {
                                 <span className="counter">
                                     2
                                 </span>
-                                <span className="material-icons">
-                                    favorite
-                                </span>
+                                <Icon iconName="favorite" />
                             </div>
                         </NavLink>
                         <NavLink url='/'>
@@ -68,9 +66,7 @@ class Navbar extends Component {
                                 <span className="counter">
                                     2
                                 </span>
-                                <span className="material-icons">
-                                    shopping_cart
-                                </span>
+                                <Icon iconName="shopping_cart" />
                             </div>
                         </NavLink>
                     </span>
