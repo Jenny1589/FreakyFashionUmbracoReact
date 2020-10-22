@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavLink from '../navlink/navlink';
 import { services } from '../../../package.json';
 import '../../../node_modules/material-icons/iconfont/material-icons.css';
 
@@ -29,15 +30,18 @@ class Navbar extends Component {
 
     getLinks() {
         return this.state.links.map((l, index) => 
-                    <span key={ index } className="nav-item">
-                        <a href={ l.Url } className="nav-link">{l.Text}</a>
-                    </span>);
-    }
+            <NavLink key={ index } url={ l.Url }>
+                { l.Text }
+            </NavLink>
+        );
+    } 
 
     render() { 
         return ( 
             <nav className="navbar navbar-light navbar-expand-lg bg-transparent">
-                <a className="navbar-brand" href="/">{ this.getBrand() }</a>
+                <a className="navbar-brand" href="/">
+                    { this.getBrand() }
+                </a>
                 <div className="d-flex justify-content-between ml-auto w-50">
                     <span className="navbar-nav pl-3">
                         { this.getLinks() }
@@ -49,30 +53,26 @@ class Navbar extends Component {
                         <input type="text" placeholder="Search..." />
                     </span>
                     <span className="navbar-nav">
-                        <span className="nav-item">
-                            <a href="#" className="nav-link">
-                                <div className="position-relative">
-                                    <span className="counter">
-                                        2
-                                    </span>
-                                    <span className="material-icons">
-                                        favorite
-                                    </span>
-                                </div>
-                            </a>
-                        </span>
-                        <span className="nav-item">
-                            <a href="#" className="nav-link">
-                                <div className="position-relative">
-                                    <span className="counter">
-                                        2
-                                    </span>
-                                    <span className="material-icons">
-                                        shopping_cart
-                                    </span>
-                                </div>
-                            </a>
-                        </span>
+                        <NavLink url='/'>
+                            <div className="position-relative">
+                                <span className="counter">
+                                    2
+                                </span>
+                                <span className="material-icons">
+                                    favorite
+                                </span>
+                            </div>
+                        </NavLink>
+                        <NavLink url='/'>
+                            <div className="position-relative">
+                                <span className="counter">
+                                    2
+                                </span>
+                                <span className="material-icons">
+                                    shopping_cart
+                                </span>
+                            </div>
+                        </NavLink>
                     </span>
                 </div>
             </nav>
