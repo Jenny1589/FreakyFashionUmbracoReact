@@ -5,7 +5,7 @@ import { services } from '../../../package.json';
 
 class Navbar extends Component {
     state = { 
-        serviceUrl: services.contentAPI + "navigation/getnavbar",
+        serviceUrl: services.contentAPI + "content/getnavbar",
         brand: "",
         links: []
     }

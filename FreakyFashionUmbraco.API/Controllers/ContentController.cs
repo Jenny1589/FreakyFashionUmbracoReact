@@ -5,7 +5,7 @@ using FreakyFashionUmbraco.API.Models.Navigation;
 
 namespace FreakyFashionUmbraco.API.Controllers
 {
-    public class NavigationController : UmbracoApiController
+    public class ContentController : UmbracoApiController
     {
         // GET: umbraco/api/Navigation/GetNavbar
         public Navbar GetNavbar()
