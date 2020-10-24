@@ -276,6 +276,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Models\models.generated_log.ldf" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -300,15 +301,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Models\models.generated.cs" />
+    <Compile Include="App_Data\Models\CategoryArea.generated.cs" />
+    <Compile Include="App_Data\Models\CategoryPage.generated.cs" />
+    <Compile Include="App_Data\Models\CategorySection.generated.cs" />
+    <Compile Include="App_Data\Models\CompanyInformation.generated.cs" />
+    <Compile Include="App_Data\Models\ContentInformation.generated.cs" />
+    <Compile Include="App_Data\Models\File.generated.cs" />
+    <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\HomePage.generated.cs" />
+    <Compile Include="App_Data\Models\Image.generated.cs" />
+    <Compile Include="App_Data\Models\ImageSection.generated.cs" />
+    <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\ProductArea.generated.cs" />
+    <Compile Include="App_Data\Models\ProductPage.generated.cs" />
+    <Compile Include="App_Data\Models\ProductSection.generated.cs" />
+    <Compile Include="App_Start\WebApiJsonComposer.cs" />
     <Compile Include="App_Start\WebApiCorsComposer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\NavigationController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Navigation\Navbar.cs" />
-    <Compile Include="Models\Navigation\NavLink.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Models\Navbar.cs" />
+    <Compile Include="Models\NavLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +335,8 @@
     <Content Include="config\HealthChecks.config" />
     <Content Include="config\ClientDependency.config" />
     <Content Include="config\BackOfficeTours\getting-started.json" />
+    <Content Include="App_Data\Models\models.hash" />
+    <Content Include="App_Data\Models\all.dll.path" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />

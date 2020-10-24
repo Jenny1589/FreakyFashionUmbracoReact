@@ -1,26 +1,25 @@
 ﻿using System.Linq;
 using Umbraco.Web.WebApi;
 using Umbraco.Web;
-using FreakyFashionUmbraco.API.Models.Navigation;
+using FreakyFashionUmbraco.API.Models;
+using Umbraco.Web.PublishedModels;
 
 namespace FreakyFashionUmbraco.API.Controllers
 {
     public class ContentController : UmbracoApiController
     {
-        // GET: umbraco/api/Navigation/GetNavbar
+        private HomePage Home => Umbraco.ContentAtRoot().DescendantsOrSelf<HomePage>().FirstOrDefault();
+
+        // GET: umbraco/api/Content/GetNavbar
         public Navbar GetNavbar()
         {
-            var home = Umbraco.ContentAtRoot().FirstOrDefault();
+            var companyName = Home?.CompanyName;
 
-            var companyName = home?.Value("companyName").ToString();
-
-            var navLinks = home?.Descendants()
-                .Where(p => p.ContentType.Alias == "categoryPage" && p.Value("visibleInNavbar").Equals(true))
+            var navLinks = Home?.Descendants<CategoryPage>()
+                .Where(p => p.VisibleInNavbar.Equals(true))
                 .Select(c => new NavLink(c.Name, c.Url()));
 
-            var navbar = new Navbar(companyName, navLinks);
-
-            return navbar;
+            return new Navbar(companyName, navLinks); ;
         }
     }
 }

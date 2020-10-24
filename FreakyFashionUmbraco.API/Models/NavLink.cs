@@ -1,4 +1,4 @@
-﻿namespace FreakyFashionUmbraco.API.Models.Navigation
+﻿namespace FreakyFashionUmbraco.API.Models
 {
     public class NavLink
     {
