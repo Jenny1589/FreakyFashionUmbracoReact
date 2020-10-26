@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json.Serialization;
+using System.Web.Http;
 using System.Web.Http.Cors;
 using Umbraco.Core;
 using Umbraco.Core.Composing;
@@ -17,8 +18,10 @@ namespace FreakyFashionUmbraco.API.App_Start
         {
             public void Initialize()
             {
-                GlobalConfiguration.Configuration.Formatters.JsonFormatter
-                    .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                var serializerSettings = GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
+                
+                serializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             }
 
             public void Terminate()
