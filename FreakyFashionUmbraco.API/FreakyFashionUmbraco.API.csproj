@@ -303,24 +303,25 @@
   <ItemGroup>
     <Compile Include="App_Data\Models\CategoryArea.generated.cs" />
     <Compile Include="App_Data\Models\CategoryPage.generated.cs" />
-    <Compile Include="App_Data\Models\CategorySection.generated.cs" />
     <Compile Include="App_Data\Models\CompanyInformation.generated.cs" />
-    <Compile Include="App_Data\Models\ContentInformation.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\HeroInformation.generated.cs" />
     <Compile Include="App_Data\Models\HomePage.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
-    <Compile Include="App_Data\Models\ImageSection.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\ProductArea.generated.cs" />
     <Compile Include="App_Data\Models\ProductPage.generated.cs" />
-    <Compile Include="App_Data\Models\ProductSection.generated.cs" />
+    <Compile Include="App_Start\WebApiMappingComposer.cs" />
     <Compile Include="App_Start\WebApiJsonComposer.cs" />
     <Compile Include="App_Start\WebApiCorsComposer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\NavLink.cs" />
+    <Compile Include="Models\HomePage.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
