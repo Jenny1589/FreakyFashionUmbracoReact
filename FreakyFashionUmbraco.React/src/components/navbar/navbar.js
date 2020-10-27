@@ -16,10 +16,9 @@ class Navbar extends Component {
         })
         .then(response => response.json())
         .then(json => {
-            console.log(json);
             this.setState({
-                brand: json.Brand,
-                links: json.NavLinks
+                brand: json.brand,
+                links: json.navLinks
             });
         });
     }
@@ -30,8 +29,8 @@ class Navbar extends Component {
 
     getLinks() {
         return this.state.links.map((l, index) => 
-            <NavLink key={ index } url={ l.Url }>
-                { l.Text }
+            <NavLink key={ index } url={ l.url }>
+                { l.text }
             </NavLink>
         );
     } 
