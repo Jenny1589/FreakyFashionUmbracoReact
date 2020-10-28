@@ -21,24 +21,28 @@ namespace FreakyFashionUmbraco.API.Controllers
                 .Where(p => p.VisibleInNavbar.Equals(true))
                 .Select(c => new NavLink(c.Name, c.Url()));
 
-            return new Navbar(companyName, navLinks); ;
+            return new Navbar(companyName, navLinks);
         }
 
         public Models.HomePage GetHomePage()
         {
-            return Current.Mapper.Map<Models.HomePage>(Home);
+            return Mapper.Map<Models.HomePage>(Home);
         }
 
         public Product GetProduct(string route)
         {
             var productPage = new ProductPage(UmbracoContext.Content.GetByRoute(route));
-            return Current.Mapper.Map<Product>(productPage);        
+            return Mapper.Map<Product>(productPage);        
         }
 
         public Category GetCategory(string route)
         {
             var categoryPage = new CategoryPage(UmbracoContext.Content.GetByRoute(route));
-            return Current.Mapper.Map<Category>(categoryPage);
+            var category = Current.Mapper.Map<Category>(categoryPage);
+
+            category.IncludeProducts(Umbraco, Mapper);
+
+            return category;
         }
     }
 }
