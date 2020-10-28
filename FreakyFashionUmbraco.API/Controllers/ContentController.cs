@@ -28,5 +28,17 @@ namespace FreakyFashionUmbraco.API.Controllers
         {
             return Current.Mapper.Map<Models.HomePage>(Home);
         }
+
+        public Product GetProduct(string route)
+        {
+            var productPage = new ProductPage(UmbracoContext.Content.GetByRoute(route));
+            return Current.Mapper.Map<Product>(productPage);        
+        }
+
+        public Category GetCategory(string route)
+        {
+            var categoryPage = new CategoryPage(UmbracoContext.Content.GetByRoute(route));
+            return Current.Mapper.Map<Category>(categoryPage);
+        }
     }
 }
