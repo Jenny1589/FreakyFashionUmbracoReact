@@ -14,8 +14,8 @@ function App() {
       <main>
         <Switch>
           <Route path="/" component={ Home } exact />
-          <Route path="/product" component={ Product } />
-          <Route path="/categories" component={ Category } />
+          <Route path="/product/:slug" component={ Product } />
+          <Route path="/categories/:slug" component={ Category } />
           <Route component={ Error404 } />
         </Switch>
       </main>
