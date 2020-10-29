@@ -58,11 +58,15 @@ namespace FreakyFashionUmbraco.API.App_Start
                         target.HeroImageUrl = source.HeroImage?.Url();
 
                         target.TrendingHeader = source.TrendingHeader;
+                        target.TrendingHeaderBgText = string.IsNullOrWhiteSpace(source.TrendingHeaderBackground) ? source.TrendingHeader : source.TrendingHeaderBackground;
                         target.TrendingProducts = source.TrendingProducts.Select(p => mapper.Map<Product>(new ProductPage(p)));
 
                         target.LinksHeader = source.LinksHeader;
+                        target.LinksHeaderBgText = string.IsNullOrWhiteSpace(source.LinksHeaderBackground) ? source.LinksHeader : source.LinksHeaderBackground;
                         target.CategoryLinks = source.CategoryLinks.Select(c => mapper.Map<Category>(new CategoryPage(c)));
 
+                        target.CampaignHeader = source.CampaignHeader;
+                        target.CampaignHeaderBgText = string.IsNullOrWhiteSpace(source.CampaignHeaderBackground) ? source.CampaignHeader : source.CampaignHeaderBackground;
                         target.CampaignName = source.CampaignTitle;
                         target.CampaignImageUrl = source.CampaignImage?.Url();
                     }

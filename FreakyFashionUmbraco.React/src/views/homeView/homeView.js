@@ -39,7 +39,9 @@ const HomeView = () => {
             </header>
 
             <section id="heroSection" className="container-fluid bg-dark hero-section">
-                <PageHeader text={ content.trendingHeader } darkMode={ true }/>
+               
+                <PageHeader text={ content.trendingHeader } bgText={ content.trendingHeaderBgText } darkMode={ true }/>
+                
                 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -67,8 +69,11 @@ const HomeView = () => {
                     </a>
                 </div>
             </section>
+            <section className="link-section">
+                <PageHeader text={ content.linksHeader } bgText={ content.linksHeaderBgText } />
+            </section>
             <section className="sale-section">
-                <PageHeader text="Current campaign" bgText="Campaign" />
+                <PageHeader text={ content.campaignHeader } bgText={ content.campaignHeaderBgText } />
                 <a href="/categories/sale" className="sale-banner">
                     <img className="img-fluid" src={ services.ApiUrl + content.campaignImageUrl } alt="" />
                     <div className="sale-banner-text mx-5">
