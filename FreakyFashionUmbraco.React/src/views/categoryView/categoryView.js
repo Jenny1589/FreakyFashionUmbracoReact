@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { services } from '../../../package.json';
 import getContent from '../../hooks/getContent';
 
-const Category = (props) => {
+const CategoryView = (props) => {
     const url = services.ApiUrl + services.contentRoute + 'getcategory?route=' + props.location.pathname;
     const [category, isLoading] = getContent(url);
 
@@ -25,4 +25,4 @@ const Category = (props) => {
     );
 }
  
-export default Category;
+export default CategoryView;

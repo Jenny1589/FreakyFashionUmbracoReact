@@ -3,7 +3,7 @@ import { services } from '../../../package.json';
 import 'bootstrap/dist/js/bootstrap';
 import getContent from '../../hooks/getContent'
 
-const Home = () => {
+const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
     const [content, isLoading] = getContent(url);
 
@@ -94,4 +94,4 @@ const Home = () => {
     );
 }
  
-export default Home;
+export default HomeView;

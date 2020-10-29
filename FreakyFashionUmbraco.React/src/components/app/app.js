@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './app.css';
-import Home from '../home/home';
-import Product from '../product/product';
-import Category from '../category/category';
+import HomeView from '../../views/homeView/homeView';
+import ProductView from '../../views/productView/productView';
+import CategoryView from '../../views/categoryView/categoryView';
 import Navbar from '../navbar/navbar';
-import Error404 from '../error404/error404';
+import Error404 from '../../views/errorViews/error404';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -18,9 +18,9 @@ class App extends Component {
           <Navbar onNavigation={ this.getCategory } />
         <main>
           <Switch>
-            <Route path="/" component={ Home } exact />
-            <Route path="/products/:slug" component={ Product } />
-            <Route path="/categories/:slug" component={ Category } />             
+            <Route path="/" component={ HomeView } exact />
+            <Route path="/products/:slug" component={ ProductView } />
+            <Route path="/categories/:slug" component={ CategoryView } />             
             <Route component={ Error404 } />
           </Switch>
         </main>

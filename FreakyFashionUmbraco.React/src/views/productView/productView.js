@@ -2,7 +2,7 @@ import React from 'react';
 import { services } from '../../../package.json';
 import getContent from '../../hooks/getContent';
 
-const Product = (props) => {
+const ProductView = (props) => {
     const url = services.ApiUrl + services.contentRoute + 'getproduct?route=' + props.location.pathname;
     const [product, isLoading] = getContent(url);
 
@@ -11,4 +11,4 @@ const Product = (props) => {
     );
 }
  
-export default Product;
+export default ProductView;
