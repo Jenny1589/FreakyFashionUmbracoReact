@@ -18,8 +18,6 @@ class Home extends Component {
                 content: json,
                 isLoading: false
             });
-
-            console.log(this.state.content);
         });        
     }
 
@@ -65,7 +63,7 @@ class Home extends Component {
                         </div>
                         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                             <ol className="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                             </ol>
@@ -99,8 +97,8 @@ class Home extends Component {
                                 </h2>
                             </div>
                         </div>
-                        <a href="#" className="sale-banner">
-                            <img className="img-fluid" src={ services.ApiUrl + content.campaignImageUrl } />
+                        <a href="/categories/sale" className="sale-banner">
+                            <img className="img-fluid" src={ services.ApiUrl + content.campaignImageUrl } alt="" />
                             <div className="sale-banner-text mx-5">
                                 { content.campaignName.toUpperCase() }
                             </div>

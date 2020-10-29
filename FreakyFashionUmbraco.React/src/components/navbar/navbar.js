@@ -29,7 +29,7 @@ class Navbar extends Component {
 
     getLinks() {
         return this.state.links.map((l, index) =>
-            <NavLink key={ index } url={ l.url } onClick={ this.props.onNavigation }>
+            <NavLink key={ index } url={ l.url }>
                 { l.text }
             </NavLink>
         );

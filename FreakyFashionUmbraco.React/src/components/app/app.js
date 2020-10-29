@@ -13,16 +13,6 @@ class App extends Component {
     category: {}
   }
 
-  getCategory = (route) => {
-    fetch(services.ApiUrl + services.contentRoute + 'getcategory?route=' + route, {
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(json => {
-        this.setState({ category: json });
-    });    
-  }
-
   render(){
     return (
       <div>
@@ -31,9 +21,7 @@ class App extends Component {
           <Switch>
             <Route path="/" component={ Home } exact />
             <Route path="/product/:slug" component={ Product } />
-            <Route path="/categories/:slug">
-              <Category category={ this.state.category } />
-            </Route>
+            <Route path="/categories/:slug" component={ Category } />             
             <Route component={ Error404 } />
           </Switch>
         </main>
