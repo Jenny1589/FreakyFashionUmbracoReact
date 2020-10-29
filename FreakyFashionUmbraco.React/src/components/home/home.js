@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { services } from '../../../package.json';
 import 'bootstrap/dist/js/bootstrap';
 import getContent from '../../hooks/getContent'
