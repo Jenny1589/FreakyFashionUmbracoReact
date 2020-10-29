@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { services } from '../../../package.json';
 import getContent from '../../hooks/getContent';
 
@@ -9,7 +10,9 @@ const Category = (props) => {
     function renderProducts(){
         return category.products.map((p, i) => 
             <div style={{width: 200}}>
-                <img className="img-fluid" key={i} src={ services.ApiUrl + p.imageUrls[0] } alt={ p.description } />
+                <Link to={ p.url }>
+                    <img className="img-fluid" key={i} src={ services.ApiUrl + p.imageUrls[0] } alt={ p.description } />
+                </Link>
             </div>
         );
     }
