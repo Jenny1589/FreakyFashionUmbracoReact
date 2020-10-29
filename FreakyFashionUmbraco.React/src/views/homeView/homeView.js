@@ -3,6 +3,7 @@ import { services } from '../../../package.json';
 import 'bootstrap/dist/js/bootstrap';
 import getContent from '../../hooks/getContent';
 import PageHeader from '../../components/pageHeader/pageHeader';
+import Banner from '../../components/banner/banner';
 
 const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
@@ -74,12 +75,9 @@ const HomeView = () => {
             </section>
             <section className="sale-section">
                 <PageHeader text={ content.campaignHeader } bgText={ content.campaignHeaderBgText } />
-                <a href="/categories/sale" className="sale-banner">
-                    <img className="img-fluid" src={ services.ApiUrl + content.campaignImageUrl } alt="" />
-                    <div className="sale-banner-text mx-5">
-                        { content.campaignName.toUpperCase() }
-                    </div>
-                </a>
+                <Banner imgUrl={ services.ApiUrl + content.campaignImageUrl }
+                    bannerUrl="/categories/sale"
+                    text={ content.campaignName } />
             </section>
             <footer>
                 {/* <!--@*Put footer partial here*@--> */}
