@@ -1,0 +1,40 @@
+.link-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: calc(100% / 2);
+}
+
+.link-card-image {
+  position: absolute;
+  top: 0;
+  left: -85%;
+  height: 100%;
+}
+
+.link-card-overlay {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 100;
+  transition: 0.5s ease-out;
+}
+
+.link-card-overlay:hover {
+  opacity: 0;
+}
+
+.link-card-text {
+  color: white;
+  font-family: "Fredericka the Great";
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 32px;
+}

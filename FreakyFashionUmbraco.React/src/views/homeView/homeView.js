@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap';
 import getContent from '../../hooks/getContent';
 import PageHeader from '../../components/pageHeader/pageHeader';
 import Banner from '../../components/banner/banner';
+import Grid from '../../components/linkGrid/linkGrid';
 
 const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
@@ -72,6 +73,7 @@ const HomeView = () => {
             </section>
             <section className="link-section">
                 <PageHeader text={ content.linksHeader } bgText={ content.linksHeaderBgText } />
+                <Grid linkCardItems={ content.categoryLinks } />
             </section>
             <section className="sale-section">
                 <PageHeader text={ content.campaignHeader } bgText={ content.campaignHeaderBgText } />
