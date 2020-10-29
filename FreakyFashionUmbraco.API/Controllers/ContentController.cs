@@ -38,7 +38,7 @@ namespace FreakyFashionUmbraco.API.Controllers
         public Category GetCategory(string route)
         {
             var categoryPage = new CategoryPage(UmbracoContext.Content.GetByRoute(route));
-            var category = Current.Mapper.Map<Category>(categoryPage);
+            var category = Mapper.Map<Category>(categoryPage);
 
             category.IncludeProducts(Umbraco, Mapper);
 
