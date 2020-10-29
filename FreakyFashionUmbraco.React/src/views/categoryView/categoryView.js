@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { services } from '../../../package.json';
 import getContent from '../../hooks/getContent';
+import PageHeader from '../../components/pageHeader/pageHeader';
+import ProductCard from '../../components/productCard/productCard';
 
 const CategoryView = (props) => {
     const url = services.ApiUrl + services.contentRoute + 'getcategory?route=' + props.location.pathname;
@@ -9,18 +10,19 @@ const CategoryView = (props) => {
 
     function renderProducts(){
         return category.products.map((p, i) => 
-            <div style={{width: 200}}>
-                <Link to={ p.url }>
-                    <img className="img-fluid" key={i} src={ services.ApiUrl + p.imageUrls[0] } alt={ p.description } />
-                </Link>
-            </div>
+            <span key={ i } className="w-25 p-2">
+                <ProductCard product={ p } /> 
+            </span>
         );
     }
 
     return ( isLoading ? <div>Loading...</div> : 
-        <div className="mt-5">
-            <h1>{ category.name }</h1>
-            { renderProducts() }
+        <div className="container mt-5">
+            <PageHeader text={ category.name } />
+
+            <div className="d-flex flex-wrap">
+                { renderProducts() }
+            </div>
         </div>
     );
 }

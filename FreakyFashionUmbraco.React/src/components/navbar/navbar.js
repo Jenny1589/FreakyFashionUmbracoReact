@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavLink from '../navlink/navlink';
+import NavLink from '../navLink/navLink';
 import Icon from '../icon/icon';
 import { services } from '../../../package.json';
 
