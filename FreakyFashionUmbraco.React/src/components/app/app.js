@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './app.css';
-import { services } from '../../../package.json';
 import Home from '../home/home';
 import Product from '../product/product';
 import Category from '../category/category';
@@ -20,7 +19,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route path="/" component={ Home } exact />
-            <Route path="/product/:slug" component={ Product } />
+            <Route path="/products/:slug" component={ Product } />
             <Route path="/categories/:slug" component={ Category } />             
             <Route component={ Error404 } />
           </Switch>
