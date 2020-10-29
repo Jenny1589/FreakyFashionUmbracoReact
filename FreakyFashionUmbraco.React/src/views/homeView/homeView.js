@@ -1,11 +1,14 @@
 import React from 'react';
 import { services } from '../../../package.json';
 import 'bootstrap/dist/js/bootstrap';
-import getContent from '../../hooks/getContent'
+import getContent from '../../hooks/getContent';
+import PageHeader from '../../components/pageHeader/pageHeader';
 
 const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
     const [content, isLoading] = getContent(url);
+
+    console.log(content);
 
     return ( isLoading ? <div>Loading...</div> :
         <div>
@@ -36,14 +39,7 @@ const HomeView = () => {
             </header>
 
             <section id="heroSection" className="container-fluid bg-dark hero-section">
-                <div className="section-header-container">
-                    <div className="section-header-background text-black-50">
-                        { content.trendingHeader }
-                        <h2 className="section-header text-white mt-4">
-                            { content.trendingHeader.toUpperCase() }
-                        </h2>
-                    </div>
-                </div>
+                <PageHeader text={ content.trendingHeader } darkMode={ true }/>
                 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -72,14 +68,7 @@ const HomeView = () => {
                 </div>
             </section>
             <section className="sale-section">
-            <div className="section-header-container">
-                    <div className="section-header-background text-white">
-                        Campaign
-                        <h2 className="section-header text-black mt-4">
-                            CURRENT CAMPAIGN
-                        </h2>
-                    </div>
-                </div>
+                <PageHeader text="Current campaign" bgText="Campaign" />
                 <a href="/categories/sale" className="sale-banner">
                     <img className="img-fluid" src={ services.ApiUrl + content.campaignImageUrl } alt="" />
                     <div className="sale-banner-text mx-5">

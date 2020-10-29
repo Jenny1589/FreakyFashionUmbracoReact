@@ -173,21 +173,3 @@ section {
   font-weight: 900;
   color: white;
 }
-
-.section-header {
-  position: absolute;
-  font-family: "Fredericka the Great";
-  z-index: 99999;
-  color: black;
-}
-
-.section-header-background {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Raleway";
-  font-size: 130px;
-  font-weight: 900;
-  color: rgb(240, 242, 241);
-}
