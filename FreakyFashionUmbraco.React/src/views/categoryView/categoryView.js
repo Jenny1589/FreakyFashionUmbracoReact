@@ -10,7 +10,7 @@ const CategoryView = (props) => {
 
     function renderProducts(){
         return category.products.map((p, i) => 
-            <span key={ i } className="w-25 p-2">
+            <span key={ i } className="w-25 p-3">
                 <ProductCard product={ p } /> 
             </span>
         );

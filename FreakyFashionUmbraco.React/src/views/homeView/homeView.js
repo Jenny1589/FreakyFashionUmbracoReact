@@ -10,8 +10,6 @@ const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
     const [content, isLoading] = getContent(url);
 
-    console.log(content);
-
     return ( isLoading ? <div>Loading...</div> :
         <div>
             <header className="container-fluid">
