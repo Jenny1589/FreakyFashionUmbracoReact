@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { services } from '../../../package.json';
 import 'bootstrap/dist/js/bootstrap';
 import getContent from '../../hooks/getContent';
@@ -75,9 +76,10 @@ const HomeView = () => {
             </section>
             <section className="sale-section">
                 <PageHeader text={ content.campaignHeader } bgText={ content.campaignHeaderBgText } />
-                <Banner imgUrl={ services.ApiUrl + content.campaignImageUrl }
-                    bannerUrl="/categories/sale"
-                    text={ content.campaignName } />
+                <Link to="/categories/sale">
+                    <Banner imgUrl={ services.ApiUrl + content.campaignImageUrl }
+                        text={ content.campaignName } />
+                </Link>
             </section>
             <footer>
                 {/* <!--@*Put footer partial here*@--> */}

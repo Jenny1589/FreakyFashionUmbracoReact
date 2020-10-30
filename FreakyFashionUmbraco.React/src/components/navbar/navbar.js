@@ -37,7 +37,7 @@ class Navbar extends Component {
 
     render() { 
         return ( 
-            <nav className="navbar navbar-light navbar-expand-lg bg-transparent">
+            <nav className="navbar navbar-light navbar-expand-lg bg-light shadow">
                 <a className="navbar-brand" href="/">
                     { this.getBrand() }
                 </a>
