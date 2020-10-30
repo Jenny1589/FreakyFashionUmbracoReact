@@ -46,10 +46,13 @@ class Navbar extends Component {
                         { this.getLinks() }
                     </span>
                     <span className="d-flex align-items-center">
-                        <span className="material-icons">
-                            search
-                        </span>
-                        <input type="text" placeholder="Search..." />
+                        <form action="/search" className="d-flex align-items-center">
+                            <span className="material-icons">
+                                search
+                            </span>
+                            <input type="text" placeholder="Search..." />
+                        </form>
+                        
                     </span>
                     <span className="navbar-nav">
                         <NavLink url='/'>
