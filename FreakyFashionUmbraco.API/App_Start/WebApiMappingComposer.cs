@@ -46,6 +46,7 @@ namespace FreakyFashionUmbraco.API.App_Start
                         target.Name = source.Name;
                         target.ImageUrl = source.HeroImage?.Url();
                         target.Url = source.Url();
+                        target.IsSaleCategory = source.IsSaleCategory;
                     }
                 );
 
