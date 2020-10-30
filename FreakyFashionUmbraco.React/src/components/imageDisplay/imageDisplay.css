@@ -1,0 +1,19 @@
+.image-container {
+  display: inline-block;
+  margin: 8px;
+  object-fit: cover;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.image-display .image-container {
+  width: 100%;
+}
+
+.image-list .image-container {
+  width: calc(33.33% - 16px);
+  cursor: pointer;
+}
