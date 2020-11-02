@@ -8,9 +8,9 @@ const Footer = () => {
     const [elements, isLoading] = getContent(url);
 
     function renderElements(){
-        return elements.map(e => {
+        return elements.map((e, i) => {
             return (
-                <span className="d-flex align-items-center">
+                <span key={ i } className="d-flex align-items-center">
                     <Icon iconName= { e.iconName } />
                     <span>{ e.text }</span>
                 </span>
