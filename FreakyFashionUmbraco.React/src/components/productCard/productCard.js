@@ -46,7 +46,6 @@ const ProductCard = (props) => {
                         </span>
                         <span>{ props.product.price + ' kr' }</span>
                     </p>
-                    <button type="button" className="btn btn-primary">Buy</button>
                 </div>                
             </div>
         </div>
