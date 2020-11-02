@@ -6,6 +6,7 @@ export default function(url) {
 
     useEffect(() => {
         async function fetchContent(){
+            setIsLoading(true);
             const json = await fetch(url).then(response => response.json());
     
             setData(json);
