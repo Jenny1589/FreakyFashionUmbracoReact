@@ -6,6 +6,7 @@ import getContent from '../../hooks/getContent';
 import PageHeader from '../../components/pageHeader/pageHeader';
 import Banner from '../../components/banner/banner';
 import Grid from '../../components/linkGrid/linkGrid';
+import PopularProducts from '../../components/popularProducts/popularProducts';
 
 const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
@@ -73,6 +74,9 @@ const HomeView = () => {
             <section className="link-section">
                 <PageHeader text={ content.linksHeader } bgText={ content.linksHeaderBgText } />
                 <Grid linkCardItems={ content.categoryLinks } />
+            </section>
+            <section className="product-section">
+                <PopularProducts />
             </section>
             <section className="sale-section">
                 <PageHeader text={ content.campaignHeader } bgText={ content.campaignHeaderBgText } />

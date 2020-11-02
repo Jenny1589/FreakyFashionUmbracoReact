@@ -52,5 +52,12 @@ namespace FreakyFashionUmbraco.API.Controllers
                 .Take(4)
                 .Select(p => Mapper.Map<Product>(p));
         }
+
+        public IEnumerable<Product> GetPopularProducts()
+        {
+            return Home.Descendants<ProductPage>()
+                    .Take(8)
+                    .Select(p => Mapper.Map<Product>(p));        
+        }
     }
 }
