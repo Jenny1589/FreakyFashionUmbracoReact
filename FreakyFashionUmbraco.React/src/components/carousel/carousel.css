@@ -1,0 +1,11 @@
+.carousel-indicators {
+  margin-bottom: -3%;
+}
+
+.carousel-control-next {
+  margin-right: -10%;
+}
+
+.carousel-control-prev {
+  margin-left: -10%;
+}

@@ -7,6 +7,7 @@ import PageHeader from '../../components/pageHeader/pageHeader';
 import Banner from '../../components/banner/banner';
 import Grid from '../../components/linkGrid/linkGrid';
 import PopularProducts from '../../components/popularProducts/popularProducts';
+import Carousel from '../../components/carousel/carousel';
 
 const HomeView = () => {
     const url = services.ApiUrl + services.contentRoute + 'gethomepage';
@@ -40,36 +41,9 @@ const HomeView = () => {
                 </section>
             </header>
 
-            <section id="heroSection" className="container-fluid bg-dark hero-section">
-               
+            <section id="heroSection" className="container-fluid bg-dark hero-section">               
                 <PageHeader text={ content.trendingHeader } bgText={ content.trendingHeaderBgText } darkMode={ true }/>
-                
-                <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-                    <ol className="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img src="https://via.placeholder.com/1020x570.jpg" className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src="https://via.placeholder.com/1020x570.jpg" className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src="https://via.placeholder.com/1020x570.jpg" className="d-block w-100" alt="..." />
-                        </div>
-                    </div>
-                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
-                </div>
+                <Carousel products={ content.trendingProducts } />                
             </section>
             <section className="link-section">
                 <PageHeader text={ content.linksHeader } bgText={ content.linksHeaderBgText } />
@@ -85,9 +59,6 @@ const HomeView = () => {
                         text={ content.campaignName } />
                 </Link>
             </section>
-            <footer>
-                {/* <!--@*Put footer partial here*@--> */}
-            </footer>
         </div>
     );
 }
