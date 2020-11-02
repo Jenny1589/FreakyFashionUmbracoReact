@@ -72,6 +72,15 @@ namespace FreakyFashionUmbraco.API.App_Start
                         target.CampaignImageUrl = source.CampaignImage?.Url();
                     }
                 );
+
+                mapper.Define<Umbraco.Web.PublishedModels.FooterElement, Models.FooterElement>(
+                    ctor: (source, context) => new Models.FooterElement(),
+                    map: (source, target, context) =>
+                    {
+                        target.IconName = source.IconName;
+                        target.Text = source.Text;
+                    }
+                );
             }
         }
     }

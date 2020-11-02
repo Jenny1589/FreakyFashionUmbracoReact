@@ -6,6 +6,7 @@ import CategoryView from '../../views/categoryView/categoryView';
 import Navbar from '../navbar/navbar';
 import Error404 from '../../views/errorViews/error404';
 import { Switch, Route } from 'react-router-dom';
+import Footer from '../footer/footer';
 
 class App extends Component {
   state = {
@@ -15,7 +16,7 @@ class App extends Component {
   render(){
     return (
       <div>
-          <Navbar onNavigation={ this.getCategory } />
+        <Navbar />
         <main>
           <Switch>
             <Route path="/" component={ HomeView } exact />
@@ -24,6 +25,7 @@ class App extends Component {
             <Route component={ Error404 } />
           </Switch>
         </main>
+        <Footer />
       </div>    
     );
   } 

@@ -59,5 +59,10 @@ namespace FreakyFashionUmbraco.API.Controllers
                     .Take(8)
                     .Select(p => Mapper.Map<Product>(p));        
         }
+
+        public IEnumerable<Models.FooterElement> GetFooter()
+        {
+            return Home.FooterContent.Select(e => Mapper.Map<Models.FooterElement>(e));
+        }
     }
 }

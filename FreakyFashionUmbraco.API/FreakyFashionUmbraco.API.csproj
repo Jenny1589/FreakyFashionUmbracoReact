@@ -306,6 +306,7 @@
     <Compile Include="App_Data\Models\CompanyInformation.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\FooterElement.generated.cs" />
     <Compile Include="App_Data\Models\HeroInformation.generated.cs" />
     <Compile Include="App_Data\Models\HomePage.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
@@ -318,6 +319,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\FooterElement.cs" />
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\NavLink.cs" />
     <Compile Include="Models\HomePage.cs" />

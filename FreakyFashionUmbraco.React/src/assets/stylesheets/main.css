@@ -70,7 +70,7 @@ section {
 
 .bg-primary,
 .btn-primary {
-  background-color: rgb(210, 15, 75);
+  background-color: rgb(210, 15, 75) !important;
   border-color: rgb(210, 15, 75);
 }
 
