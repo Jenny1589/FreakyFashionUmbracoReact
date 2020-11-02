@@ -3,6 +3,7 @@ import { services } from '../../../package.json';
 import getContent from '../../hooks/getContent';
 import PageHeader from '../../components/pageHeader/pageHeader';
 import ImageDisplay from '../../components/imageDisplay/imageDisplay';
+import RecommendedProducts from '../../components/recommendedProducts/recommendedProducts';
 
 const ProductView = (props) => {
     const url = services.ApiUrl + services.contentRoute + 'getproduct?route=' + props.location.pathname;
@@ -48,7 +49,7 @@ const ProductView = (props) => {
                     </div>
                 </div>
             </div>
-            <PageHeader text="Recommended for you" bgText="Recommended" />
+            <RecommendedProducts excludeartnr={ product.articleNumber } />
         </div>        
     );
 }

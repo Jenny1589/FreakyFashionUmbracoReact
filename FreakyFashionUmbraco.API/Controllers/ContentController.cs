@@ -3,7 +3,7 @@ using Umbraco.Web.WebApi;
 using Umbraco.Web;
 using FreakyFashionUmbraco.API.Models;
 using Umbraco.Web.PublishedModels;
-using Umbraco.Core.Composing;
+using System.Collections.Generic;
 
 namespace FreakyFashionUmbraco.API.Controllers
 {
@@ -43,6 +43,14 @@ namespace FreakyFashionUmbraco.API.Controllers
             category.IncludeProducts(Umbraco, Mapper);
 
             return category;
+        }
+
+        public IEnumerable<Product> GetRecommendedProducts(string excludeArtNr)
+        {
+            return Home.Descendants<ProductPage>()
+                .Where(p => p.ArticleNumber != excludeArtNr)
+                .Take(4)
+                .Select(p => Mapper.Map<Product>(p));
         }
     }
 }
