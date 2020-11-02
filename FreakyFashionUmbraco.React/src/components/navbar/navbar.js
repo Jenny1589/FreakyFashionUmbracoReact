@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavLink from '../navLink/navLink';
 import Icon from '../icon/icon';
 import { services } from '../../../package.json';
+import SearchForm from '../searchForm/searchForm';
 
 class Navbar extends Component {
     state = { 
@@ -45,15 +46,9 @@ class Navbar extends Component {
                     <span className="navbar-nav pl-3">
                         { this.getLinks() }
                     </span>
-                    <span className="d-flex align-items-center">
-                        <form action="/search" className="d-flex align-items-center">
-                            <span className="material-icons">
-                                search
-                            </span>
-                            <input type="text" placeholder="Search..." />
-                        </form>
-                        
-                    </span>
+
+                    <SearchForm />
+                    
                     <span className="navbar-nav">
                         <NavLink url='/'>
                             <div className="position-relative">

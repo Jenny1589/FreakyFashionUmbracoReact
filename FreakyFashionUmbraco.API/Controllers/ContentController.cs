@@ -60,6 +60,18 @@ namespace FreakyFashionUmbraco.API.Controllers
                     .Select(p => Mapper.Map<Product>(p));        
         }
 
+        public IEnumerable<Product> GetProducts(string query)
+        {
+            query = query.ToUpper();
+
+            return Home.Descendants<ProductPage>()
+                .Where(p => p.Name.ToUpper().Contains(query) ||
+                    p.ProductName.ToUpper().Contains(query) ||
+                    p.ProductDescription.ToUpper().Contains(query) ||
+                    p.Categories.Any(c => c.Name.ToUpper().Contains(query)))
+                .Select(p => Mapper.Map<Product>(p));
+        }
+
         public IEnumerable<Models.FooterElement> GetFooter()
         {
             return Home.FooterContent.Select(e => Mapper.Map<Models.FooterElement>(e));
