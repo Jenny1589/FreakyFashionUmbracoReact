@@ -17,7 +17,11 @@ const ProductView = (props) => {
                         <ImageDisplay imageUrls={ product.imageUrls } />
                     </div>
                     <div className="col-6">
-                        <div className="bg-white p-4 h-100"> 
+                        <div className="bg-white p-4 h-100">
+                            <div className="mb-2">
+                                <span  className="mr-2">Art. nr:</span>
+                                <span>{ product.articleNumber }</span>
+                            </div> 
                             <h4>Details</h4>
                             <p>{ product.description }</p>                           
                             <div>
@@ -44,6 +48,7 @@ const ProductView = (props) => {
                     </div>
                 </div>
             </div>
+            <PageHeader text="Recommended for you" bgText="Recommended" />
         </div>        
     );
 }

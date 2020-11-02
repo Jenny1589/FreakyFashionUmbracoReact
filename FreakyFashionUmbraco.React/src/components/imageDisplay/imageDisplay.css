@@ -1,5 +1,4 @@
 .image-container {
-  display: inline-block;
   margin: 8px;
   object-fit: cover;
 }
@@ -9,11 +8,26 @@
   height: auto;
 }
 
-.image-display .image-container {
-  width: 100%;
+.image-display {
+  display: flex;
+}
+
+.image-display > .image-container {
+  display: inline-block;
+  width: 75%;
+}
+
+.image-list {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
 }
 
 .image-list .image-container {
-  width: calc(33.33% - 16px);
   cursor: pointer;
+}
+
+.image-list .image-container:hover {
+  border: rgb(181, 13, 63) 1px solid;
+  padding: 4px;
 }
