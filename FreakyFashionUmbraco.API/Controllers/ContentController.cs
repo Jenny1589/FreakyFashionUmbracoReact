@@ -4,6 +4,13 @@ using Umbraco.Web;
 using FreakyFashionUmbraco.API.Models;
 using Umbraco.Web.PublishedModels;
 using System.Collections.Generic;
+using System.Web.Http;
+using System.Web;
+using System;
+using Umbraco.Core;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Umbraco.Core.Models;
 
 namespace FreakyFashionUmbraco.API.Controllers
 {
@@ -66,7 +73,6 @@ namespace FreakyFashionUmbraco.API.Controllers
 
             return Home.Descendants<ProductPage>()
                 .Where(p => p.Name.ToUpper().Contains(query) ||
-                    p.ProductName.ToUpper().Contains(query) ||
                     p.ProductDescription.ToUpper().Contains(query) ||
                     p.Categories.Any(c => c.Name.ToUpper().Contains(query)))
                 .Select(p => Mapper.Map<Product>(p));
@@ -75,6 +81,85 @@ namespace FreakyFashionUmbraco.API.Controllers
         public IEnumerable<Models.FooterElement> GetFooter()
         {
             return Home.FooterContent.Select(e => Mapper.Map<Models.FooterElement>(e));
+        }
+
+        public IHttpActionResult PostCategory()
+        {
+            var data = HttpContext.Current.Request.Form;
+
+            var categoryArea = Home.FirstChild<CategoryArea>();
+            var content = Services.ContentService.Create(data["name"], categoryArea.Key, CategoryPage.ModelTypeAlias, 1);
+
+            var imageUdi = GetImageUdis(HttpContext.Current.Request.Files);
+
+            content.SetValue(CategoryPage.GetModelPropertyType(c => c.HeroImage).Alias, imageUdi);
+            content.SetValue(CategoryPage.GetModelPropertyType(c => c.VisibleInNavbar).Alias, data["visibleInNavbar"]);
+
+            return SaveAndPublishContent(content);
+        }
+
+        public IHttpActionResult PostProduct()
+        {
+            var data = HttpContext.Current.Request.Form;
+            
+            var productArea = Home.FirstChild<ProductArea>();
+            var content = Services.ContentService.Create(data["name"], productArea.Key, ProductPage.ModelTypeAlias, 1);
+
+            var categoryInput = data["categories"].Split(',');
+            var categuryUdis = GetCategoryUdis(categoryInput);
+
+            var imageUdis = GetImageUdis(HttpContext.Current.Request.Files);
+
+            content.SetValue(ProductPage.GetModelPropertyType(p => p.ArticleNumber).Alias, data["articleNumber"]);
+            content.SetValue(ProductPage.GetModelPropertyType(p => p.ProductDescription).Alias, data["description"]);
+            content.SetValue(ProductPage.GetModelPropertyType(p => p.Price).Alias, data["price"]);
+            content.SetValue(ProductPage.GetModelPropertyType(p => p.RecommendedPrice).Alias, data["recommendedPrice"]);
+            content.SetValue(ProductPage.GetModelPropertyType(p => p.Categories).Alias, categuryUdis);
+            content.SetValue(ProductPage.GetModelPropertyType(p => p.ProductImages).Alias, imageUdis);
+
+            return SaveAndPublishContent(content);
+        }        
+
+        private IHttpActionResult SaveAndPublishContent(IContent content)
+        {
+            var result = Services.ContentService.SaveAndPublish(content);
+
+            if (result.Success) return Ok(content.Key);
+
+            return InternalServerError();
+        }
+
+        private string GetCategoryUdis(IEnumerable<string> categoryInput)
+        {
+            categoryInput = categoryInput.Select(i => i.ToUpper());
+
+            return string.Join(",", Home.Descendants<CategoryPage>()
+                    .Where(c => categoryInput.Contains(c.Name.ToUpper()))
+                    .Select(c => Udi.Create(Constants.UdiEntityType.Document, c.Key).ToString()));
+        }
+
+        private string GetImageUdis(HttpFileCollection images)
+        {
+            var udis = new List<string>();
+            var index = 0;
+
+            foreach(var file in images)
+            {
+                var img = images[index];
+
+                using(Stream s = img.InputStream)
+                {
+                    var media = Services.MediaService.CreateMedia(img.FileName, Constants.System.Root, Constants.Conventions.MediaTypes.Image, 1);
+                    media.SetValue(Services.ContentTypeBaseServices, Constants.Conventions.Media.File, img.FileName, s);
+                    Services.MediaService.Save(media);
+
+                    udis.Add(Udi.Create(Constants.UdiEntityType.Media, media.Key).ToString());
+                }
+
+                index++;
+            }
+
+            return string.Join(",", udis);
         }
     }
 }

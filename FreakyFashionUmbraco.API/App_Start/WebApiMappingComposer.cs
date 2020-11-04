@@ -29,7 +29,7 @@ namespace FreakyFashionUmbraco.API.App_Start
                     ctor: (source, context) => new Product(),
                     map: (source, target, context) =>
                     {
-                        target.Name = string.IsNullOrWhiteSpace(source.ProductName) ? source.Name : source.ProductName;
+                        target.Name = source.Name;
                         target.ArticleNumber = source.ArticleNumber;
                         target.Description = source.ProductDescription;
                         target.Price = source.Price;
