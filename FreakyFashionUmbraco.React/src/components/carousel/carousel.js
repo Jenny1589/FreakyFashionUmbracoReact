@@ -9,8 +9,8 @@ const Carousel = (props) => {
         
         function renderProducts(data){
             return data.map((p, i) => 
-                <div className='m-3' style={{width: 30 + '%'}}>
-                    <ProductCard key={ i } product={ p } />
+                <div key={i} className='m-3' style={{width: 30 + '%'}}>
+                    <ProductCard product={ p } />
                 </div>
             );
         }
@@ -48,7 +48,7 @@ const Carousel = (props) => {
 
         for(let i = 0; i < numberOfIndicators; i++){
             indicators.push(
-                <li data-target="#carousel" data-slide-to={ i } className={ i === 0 ? 'active' : '' }></li>
+                <li key={i} data-target="#carousel" data-slide-to={ i } className={ i === 0 ? 'active' : '' }></li>
             );
         }
 
