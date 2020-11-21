@@ -1,0 +1,19 @@
+.sidebar {
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  padding: 32px;
+  margin-right: 16px;
+}
+
+.sidebar a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.sidebar a:hover {
+  color: rgb(170, 170, 170);
+}
