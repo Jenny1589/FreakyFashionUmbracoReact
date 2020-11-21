@@ -19,7 +19,7 @@ const Footer = () => {
     }
 
     return ( isLoading ? <div>Loading...</div> :
-        <footer className="container-fluid d-flex flex-column bg-primary text-white p-5 mt-5">
+        <footer className="container-fluid d-flex flex-column bg-primary text-white p-5">
             <div className="d-flex justify-content-around mb-5">
                 { renderElements() }
             </div>
