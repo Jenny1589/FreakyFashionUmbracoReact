@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
+import NavLink from '../../components/navLink/navLink';
 import SideBar from '../../components/sideBar/sideBar';
 import Icon from '../../components/icon/icon';
 import './adminView.css';
