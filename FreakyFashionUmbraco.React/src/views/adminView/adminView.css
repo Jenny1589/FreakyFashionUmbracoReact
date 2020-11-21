@@ -1,0 +1,10 @@
+.admin-area {
+  display: inline-block;
+  height: 100%;
+  padding: 16px;
+}
+
+.container-fluid {
+  display: flex;
+  height: 100vh;
+}

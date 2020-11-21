@@ -8,6 +8,7 @@ import Error404 from '../../views/errorViews/error404';
 import { Switch, Route } from 'react-router-dom';
 import Footer from '../footer/footer';
 import SearchView from '../../views/searchView/searchView';
+import AdminView from '../../views/adminView/adminView';
 
 class App extends Component {
   state = {
@@ -23,7 +24,8 @@ class App extends Component {
             <Route path="/" component={ HomeView } exact />
             <Route path="/products/:slug" component={ ProductView } />
             <Route path="/categories/:slug" component={ CategoryView } />
-            <Route path="/search" component={ SearchView } />             
+            <Route path="/search" component={ SearchView } />
+            <Route path="/admin" component={ AdminView } />             
             <Route component={ Error404 } />
           </Switch>
         </main>
