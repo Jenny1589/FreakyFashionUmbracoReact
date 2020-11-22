@@ -47,7 +47,7 @@ class Navbar extends Component {
                         { this.getLinks() }
                     </span>
 
-                    <SearchForm />
+                    <SearchForm action="/search" />
                     
                     <span className="navbar-nav">
                         <NavLink url='/'>
