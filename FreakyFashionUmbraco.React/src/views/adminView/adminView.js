@@ -11,7 +11,7 @@ const AdminView = () => {
     let { path, url } = useRouteMatch();
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid admin-view">
             <SideBar>
                 <NavLink url={`${url}/products`}>
                     <Icon iconName="store" />

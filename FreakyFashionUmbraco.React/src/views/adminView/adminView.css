@@ -5,7 +5,7 @@
   padding: 16px;
 }
 
-.container-fluid {
+.admin-view {
   display: flex;
   height: 100vh;
 }
