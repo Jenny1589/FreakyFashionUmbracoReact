@@ -42,16 +42,43 @@ namespace FreakyFashionUmbraco.API.Controllers
             return Mapper.Map<Product>(productPage);        
         }
 
+        private IEnumerable<Product> GetProducts(Func<ProductPage, bool> filter)
+        {
+            return Home.Descendants<ProductPage>()
+                    .Where(p => filter(p))
+                    .Select(p => Mapper.Map<Product>(p));
+        }
+
+        public bool ProductIsOnSale(ProductPage product) => product.RecommendedPrice > product.Price;
+
         public Category GetCategory(string route)
         {
             var categoryPage = new CategoryPage(UmbracoContext.Content.GetByRoute(route));
             var category = Mapper.Map<Category>(categoryPage);
 
-            category.IncludeProducts(Umbraco, Mapper);
+            category.Products = category.IsSaleCategory ? 
+                GetProducts(ProductIsOnSale) : 
+                GetProducts(category.PruductIsInThisCategory);
 
             return category;
         }
 
+        public IEnumerable<Category> GetAllCategories()
+        {
+            return Home.Descendants<CategoryPage>()
+                .Select(c =>
+                {
+                    var category = Mapper.Map<Category>(c);
+                    var productCount = category.IsSaleCategory ? 
+                        GetProducts(ProductIsOnSale).Count() : 
+                        GetProducts(category.PruductIsInThisCategory).Count();
+
+                    category.ProductCount = $"{productCount} st";
+
+                    return category;
+                });
+        }
+        
         public IEnumerable<Product> GetRecommendedProducts(string excludeArtNr)
         {
             return Home.Descendants<ProductPage>()
