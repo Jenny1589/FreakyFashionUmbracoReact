@@ -1,6 +1,7 @@
 .admin-area {
   display: inline-block;
   height: 100%;
+  width: 80%;
   padding: 16px;
 }
 
