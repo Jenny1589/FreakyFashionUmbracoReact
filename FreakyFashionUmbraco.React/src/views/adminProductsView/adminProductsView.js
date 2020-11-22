@@ -1,31 +1,19 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
-import SearchForm from '../../components/searchForm/searchForm';
-import Table from '../../components/table/table';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import AdminProductForm from '../../components/adminProductForm/adminProductForm';
+import AdminProductList from '../../components/adminProductList/adminProductList';
 
-const AdminProductsView = () => {
-    function Product() {
-        this.articleNumber = "";
-        this.productName = "";
-        this.categories = "";
-        this.price = "";
-    }
+const AdminProductsView = () => {    
 
-    const {url} = useRouteMatch();
+    const {path, url} = useRouteMatch()
 
     return (
-        <React.Fragment>
-            <h1>Products</h1>
-            <div className="d-flex justify-content-between">
-                <SearchForm />
-                <Link to={`${url}/new`} className="btn btn-primary ml-auto">
-                    New product
-                </Link>
-            </div>
-            
-            <Table items={[new Product()]} />
-        </React.Fragment>        
-     );
+        <Switch>
+            <Route exact path={path} component={AdminProductList} />
+            <Route path={`${url}/new`} component={AdminProductForm} />
+            <Route path={`${url}/edit`} component={AdminProductForm} />
+        </Switch>   
+    );
 }
  
 export default AdminProductsView;
