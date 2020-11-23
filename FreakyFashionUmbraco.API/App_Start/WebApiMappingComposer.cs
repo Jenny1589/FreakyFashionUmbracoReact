@@ -36,6 +36,7 @@ namespace FreakyFashionUmbraco.API.App_Start
                         target.RecommendedPrice = source.RecommendedPrice;
                         target.ImageUrls = source.ProductImages.Select(i => i.Url());
                         target.Url = source.Url();
+                        target.Categories = source.Categories.Select(c => c.Name);
                     }
                 );
 
