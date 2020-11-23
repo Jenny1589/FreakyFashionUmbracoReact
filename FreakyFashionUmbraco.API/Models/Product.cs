@@ -11,5 +11,6 @@ namespace FreakyFashionUmbraco.API.Models
         public string Description { get; set; }
         public IEnumerable<string> ImageUrls { get; set; }
         public string Url { get; set; }
+        public IEnumerable<string> Categories { get; set; }
     }
 }
