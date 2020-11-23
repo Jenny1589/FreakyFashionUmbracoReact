@@ -10,7 +10,7 @@ const SearchView = (props) => {
     const [products, isLoading] = getContent(url);
     
     function getQuery(){
-        return search.split('=')[1].replace('+', ' ');
+        return search.split('=')[1].replace('%20', ' ');
     }
 
     function renderResult(){
