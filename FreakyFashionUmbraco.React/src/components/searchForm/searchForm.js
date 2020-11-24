@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from '../icon/icon';
-import './searchForm.css';
 
 const SearchForm = (props) => {
 
