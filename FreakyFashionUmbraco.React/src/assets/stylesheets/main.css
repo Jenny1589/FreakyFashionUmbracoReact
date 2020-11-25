@@ -31,6 +31,15 @@ body {
   background-color: rgb(240, 242, 241);
 }
 
+fieldset {
+  position: relative;
+}
+
+legend {
+  font-size: 1em;
+  width: auto;
+}
+
 hr {
   border-color: #212529;
 }
@@ -41,6 +50,8 @@ html {
 
 input[type="search"],
 input[type="text"],
+input[type="number"],
+textarea,
 select {
   border-radius: 15px;
   border: rgb(210, 15, 75) 1px solid;
@@ -51,11 +62,17 @@ select {
 
 input[type="search"]:focus,
 input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
 select:focus {
   border-radius: 15px;
   border: 1px solid rgb(210, 15, 75);
   outline: none;
   box-shadow: 0 0 4px rgb(210, 15, 75);
+}
+
+label {
+  margin-top: 12px;
 }
 
 section {

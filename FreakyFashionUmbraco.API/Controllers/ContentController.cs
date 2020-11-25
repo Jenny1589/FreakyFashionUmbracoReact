@@ -8,7 +8,6 @@ using System.Web.Http;
 using System.Web;
 using System;
 using Umbraco.Core;
-using Microsoft.AspNetCore.Http;
 using System.IO;
 using Umbraco.Core.Models;
 
@@ -128,7 +127,6 @@ namespace FreakyFashionUmbraco.API.Controllers
         public IHttpActionResult PostProduct()
         {
             var data = HttpContext.Current.Request.Form;
-            
             var productArea = Home.FirstChild<ProductArea>();
             var content = Services.ContentService.Create(data["name"], productArea.Key, ProductPage.ModelTypeAlias, 1);
 
