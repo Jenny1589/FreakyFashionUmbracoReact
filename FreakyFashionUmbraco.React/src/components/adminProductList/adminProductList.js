@@ -6,15 +6,16 @@ import { services } from '../../../package.json';
 
 const AdminProductList = () => {
     
-    function Product(artNr, name, categories, price) {
-        this.articleNumber = artNr;
-        this.productName = name;
-        this.categories = categories;
-        this.price = price;
+    function Product(id, artNr, name, categories, price) {
+        this.id = id === undefined ? '' : id;
+        this.artNr = artNr === undefined ? '' : artNr;
+        this.name = name === undefined ? '' : name;
+        this.categories = categories === undefined || categories.length === 0 ? '' : categories.join(', ');
+        this.price = price === undefined ? '' : price;
     }
     
     const {url} = useRouteMatch();
-    const emptyProduct = new Product('', '', '', '');
+    const emptyProduct = new Product();
     const [productList, setProductList] = useState([emptyProduct]);
     const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState('');
@@ -34,7 +35,7 @@ const AdminProductList = () => {
                 setProductList([emptyProduct]);
                 setMessage('No product was found');
             }else {
-                setProductList(json.map(p => new Product(p.articleNumber, p.name, p.categories, p.price)));
+                setProductList(json.map(p => new Product(p.id, p.articleNumber, p.name, p.categories, p.price)));
                 setMessage('');
             }
 

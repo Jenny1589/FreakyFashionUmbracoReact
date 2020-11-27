@@ -1,3 +1,11 @@
 .table th {
   text-transform: capitalize;
 }
+
+.table .table-item {
+  cursor: pointer;
+}
+
+.table .table-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
