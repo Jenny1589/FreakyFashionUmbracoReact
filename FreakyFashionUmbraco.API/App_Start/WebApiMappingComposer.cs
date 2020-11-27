@@ -29,6 +29,7 @@ namespace FreakyFashionUmbraco.API.App_Start
                     ctor: (source, context) => new Product(),
                     map: (source, target, context) =>
                     {
+                        target.Id = source.Key.ToString();
                         target.Name = source.Name;
                         target.ArticleNumber = source.ArticleNumber;
                         target.Description = source.ProductDescription;

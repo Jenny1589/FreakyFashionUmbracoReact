@@ -4,6 +4,7 @@ namespace FreakyFashionUmbraco.API.Models
 {
     public class Product
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string ArticleNumber { get; set; }
         public decimal RecommendedPrice { get; set; }
