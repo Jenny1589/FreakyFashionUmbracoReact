@@ -89,14 +89,21 @@ section {
 }
 
 .bg-primary,
-.btn-primary {
+.btn-primary,
+.btn-outline-primary:hover {
   background-color: rgb(210, 15, 75) !important;
-  border-color: rgb(210, 15, 75);
+  border-color: rgb(210, 15, 75) !important;
+  color: white !important;
 }
 
 .btn-primary:hover {
-  background-color: rgb(181, 13, 63);
-  border-color: rgb(181, 13, 63);
+  background-color: rgb(181, 13, 63) !important;
+  border-color: rgb(181, 13, 63) !important;
+}
+
+.btn-outline-primary {
+  border-color: rgb(210, 15, 75) !important;
+  color: rgb(210, 15, 75) !important;
 }
 
 .container-fluid {
