@@ -7,7 +7,7 @@ import {services} from '../../../package.json';
 const AdminCategoryList = () => {
     function Category(name, productCount){
         this.name = name;
-        this.productCount = productCount;
+        this.products = productCount;
     }   
 
     const {url} = useRouteMatch();
