@@ -41,6 +41,12 @@ namespace FreakyFashionUmbraco.API.Controllers
             return Mapper.Map<Product>(productPage);        
         }
 
+        public Product GetProduct(Guid key)
+        {
+            var productPage = new ProductPage(Umbraco.Content(key));
+            return Mapper.Map<Product>(productPage);
+        }
+
         private IEnumerable<Product> GetProducts(Func<ProductPage, bool> filter)
         {
             return Home.Descendants<ProductPage>()
