@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import AdminProductDetails from '../../components/adminProductDetails/adminProductDetails';
 import AdminProductForm from '../../components/adminProductForm/adminProductForm';
 import AdminProductList from '../../components/adminProductList/adminProductList';
 
@@ -11,7 +12,8 @@ const AdminProductsView = () => {
         <Switch>
             <Route exact path={path} component={AdminProductList} />
             <Route path={`${url}/new`} component={AdminProductForm} />
-            <Route path={`${url}/edit`} component={AdminProductForm} />
+            <Route path={`${url}/edit/:productId`} component={AdminProductForm} />
+            <Route path={`${url}/:productId`} component={AdminProductDetails} />
         </Switch>   
     );
 }
