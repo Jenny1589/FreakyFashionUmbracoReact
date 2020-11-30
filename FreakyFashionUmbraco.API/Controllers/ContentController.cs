@@ -10,6 +10,7 @@ using System;
 using Umbraco.Core;
 using System.IO;
 using Umbraco.Core.Models;
+using System.Collections.Specialized;
 
 namespace FreakyFashionUmbraco.API.Controllers
 {
@@ -134,22 +135,54 @@ namespace FreakyFashionUmbraco.API.Controllers
         {
             var data = HttpContext.Current.Request.Form;
             var productArea = Home.FirstChild<ProductArea>();
-            var content = Services.ContentService.Create(data["name"], productArea.Key, ProductPage.ModelTypeAlias, 1);
+            var newProduct = Services.ContentService.Create(data["name"], productArea.Key, ProductPage.ModelTypeAlias, 1);
 
+            SetProductValues(newProduct, data, HttpContext.Current.Request.Files);
+
+            return SaveAndPublishContent(newProduct);
+        }        
+
+        public IHttpActionResult DeleteContent(Guid key)
+        {
+            var content = Services.ContentService.GetById(key);
+            if (content == null) return NotFound();
+
+            var result = Services.ContentService.Delete(content);
+
+            if (result.Success) return Ok(content);
+
+            return BadRequest();
+        }
+
+        [HttpPut]
+        public IHttpActionResult UpdateProduct(Guid key)
+        {
+            var data = HttpContext.Current.Request.Form;
+            var product = Services.ContentService.GetById(key);
+
+            if (product == null) return NotFound();
+
+            product.Name = data["name"];
+
+            SetProductValues(product, data, HttpContext.Current.Request.Files);
+
+            return SaveAndPublishContent(product);
+        }
+
+        private void SetProductValues(IContent product, NameValueCollection data, HttpFileCollection images)
+        {
             var categoryInput = data["categories"].Split(',');
             var categuryUdis = GetCategoryUdis(categoryInput);
 
             var imageUdis = GetImageUdis(HttpContext.Current.Request.Files);
 
-            content.SetValue(ProductPage.GetModelPropertyType(p => p.ArticleNumber).Alias, data["articleNumber"]);
-            content.SetValue(ProductPage.GetModelPropertyType(p => p.ProductDescription).Alias, data["description"]);
-            content.SetValue(ProductPage.GetModelPropertyType(p => p.Price).Alias, data["price"]);
-            content.SetValue(ProductPage.GetModelPropertyType(p => p.RecommendedPrice).Alias, data["recommendedPrice"]);
-            content.SetValue(ProductPage.GetModelPropertyType(p => p.Categories).Alias, categuryUdis);
-            content.SetValue(ProductPage.GetModelPropertyType(p => p.ProductImages).Alias, imageUdis);
-
-            return SaveAndPublishContent(content);
-        }        
+            product.SetValue(ProductPage.GetModelPropertyType(p => p.ArticleNumber).Alias, data["articleNumber"]);
+            product.SetValue(ProductPage.GetModelPropertyType(p => p.ProductDescription).Alias, data["description"]);
+            product.SetValue(ProductPage.GetModelPropertyType(p => p.Price).Alias, data["price"]);
+            product.SetValue(ProductPage.GetModelPropertyType(p => p.RecommendedPrice).Alias, data["recommendedPrice"]);
+            product.SetValue(ProductPage.GetModelPropertyType(p => p.Categories).Alias, categuryUdis);
+            product.SetValue(ProductPage.GetModelPropertyType(p => p.ProductImages).Alias, imageUdis);
+        }
 
         private IHttpActionResult SaveAndPublishContent(IContent content)
         {
