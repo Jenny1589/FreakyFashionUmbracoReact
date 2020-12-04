@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminCategoryList from '../../components/adminCategoryList/adminCategoryList';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import AdminCategoryForm from '../../components/adminCategoryForm/adminCategoryForm';
+import AdminNewCategoryForm from '../../components/adminNewCategoryForm/adminNewCategoryForm';
 
 const AdminCategoriesView = () => { 
 
@@ -10,8 +10,7 @@ const AdminCategoriesView = () => {
     return (
         <Switch>
             <Route exact path={path} component={AdminCategoryList} />
-            <Route path={`${url}/new`} component={AdminCategoryForm} />
-            <Route path={`${url}/edit`} component={AdminCategoryForm} />
+            <Route path={`${url}/new`} component={AdminNewCategoryForm} />
         </Switch>
     );
 }

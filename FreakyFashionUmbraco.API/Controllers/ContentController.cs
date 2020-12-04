@@ -125,7 +125,11 @@ namespace FreakyFashionUmbraco.API.Controllers
 
             var imageUdi = GetImageUdis(HttpContext.Current.Request.Files);
 
-            content.SetValue(CategoryPage.GetModelPropertyType(c => c.HeroImage).Alias, imageUdi);
+            if(imageUdi != null)
+            {
+                content.SetValue(CategoryPage.GetModelPropertyType(c => c.HeroImage).Alias, imageUdi);
+            }
+            
             content.SetValue(CategoryPage.GetModelPropertyType(c => c.VisibleInNavbar).Alias, data["visibleInNavbar"]);
 
             return SaveAndPublishContent(content);
