@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 import SearchForm from '../../components/searchForm/searchForm';
 import Table from '../../components/table/table';
 import { services } from '../../../package.json';
@@ -15,10 +15,18 @@ const AdminProductList = () => {
     }
     
     const {url} = useRouteMatch();
+    const {search} = useLocation();
     const emptyProduct = new Product();
     const [productList, setProductList] = useState([emptyProduct]);
     const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        if(search !== ''){
+            let deleteMessage = search.split('=')[1];
+            if(deleteMessage === 'ok') setMessage('Product was successfully deleted!');
+        }               
+    }, [search]);
 
     const handleSearch = (event) => {
         event.preventDefault();

@@ -1,0 +1,16 @@
+.dialog-mask {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dialog {
+  background-color: white;
+  padding: 16px;
+}
