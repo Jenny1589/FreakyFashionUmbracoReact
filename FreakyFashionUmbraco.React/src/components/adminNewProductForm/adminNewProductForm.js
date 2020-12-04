@@ -24,7 +24,7 @@ const AdminNewProductForm = () => {
             body: data
         })
         .then(res => res.json())
-        .then(json => window.location = `.?productId=${json}`);
+        .then(json => window.location = `./${json}`);
     }
 
     return ( 

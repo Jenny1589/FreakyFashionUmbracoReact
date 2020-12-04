@@ -34,19 +34,19 @@ const ProductForm = (props) => {
                     <input id="articleNumberInput" 
                         name="articleNumber" 
                         type="text" 
-                        value={product === undefined ? '' : product.articleNumber} />
+                        defaultValue={product === undefined ? '' : product.articleNumber} />
 
                     <label htmlFor="productNameInput">Product name</label>
                     <input id="productNameInput" 
                         name="name" 
                         type="text" 
-                        value={product === undefined ? '' : product.name} />
+                        defaultValue={product === undefined ? '' : product.name} />
 
                     <label htmlFor="productDescriptionInput">Description</label>
                     <textarea id="productDescriptionInput" 
                         name="description" 
                         rows="5" 
-                        value={product === undefined ? '' : product.description} />
+                        defaultValue={product === undefined ? '' : product.description} />
 
                     <label htmlFor="productImagesInput">Upload images</label>
                     <input id="productImagesInput" 
@@ -62,7 +62,7 @@ const ProductForm = (props) => {
                             name="recommendedPrice" 
                             type="number" 
                             step="0.01" 
-                            value={product === undefined ? '' : product.recommendedPrice} />
+                            defaultValue={product === undefined ? '' : product.recommendedPrice} />
                         </div>
                         
                         <div className="d-flex flex-column w-50">
@@ -71,7 +71,7 @@ const ProductForm = (props) => {
                             name="price" 
                             type="number" 
                             step="0.01" 
-                            value={product === undefined ? '' : product.price} />
+                            defaultValue={product === undefined ? '' : product.price} />
                         </div>                    
                     </div> 
                 </fieldset>

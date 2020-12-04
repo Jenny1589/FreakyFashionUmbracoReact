@@ -157,6 +157,7 @@ namespace FreakyFashionUmbraco.API.Controllers
         [HttpPut]
         public IHttpActionResult UpdateProduct(Guid key)
         {
+            
             var data = HttpContext.Current.Request.Form;
             var product = Services.ContentService.GetById(key);
 
@@ -174,14 +175,17 @@ namespace FreakyFashionUmbraco.API.Controllers
             var categoryInput = data["categories"].Split(',');
             var categuryUdis = GetCategoryUdis(categoryInput);
 
-            var imageUdis = GetImageUdis(HttpContext.Current.Request.Files);
+            var imageUdis = GetImageUdis(images);
 
             product.SetValue(ProductPage.GetModelPropertyType(p => p.ArticleNumber).Alias, data["articleNumber"]);
             product.SetValue(ProductPage.GetModelPropertyType(p => p.ProductDescription).Alias, data["description"]);
             product.SetValue(ProductPage.GetModelPropertyType(p => p.Price).Alias, data["price"]);
             product.SetValue(ProductPage.GetModelPropertyType(p => p.RecommendedPrice).Alias, data["recommendedPrice"]);
             product.SetValue(ProductPage.GetModelPropertyType(p => p.Categories).Alias, categuryUdis);
-            product.SetValue(ProductPage.GetModelPropertyType(p => p.ProductImages).Alias, imageUdis);
+
+            if(imageUdis != null) {
+                product.SetValue(ProductPage.GetModelPropertyType(p => p.ProductImages).Alias, imageUdis);
+            }
         }
 
         private IHttpActionResult SaveAndPublishContent(IContent content)
@@ -204,8 +208,13 @@ namespace FreakyFashionUmbraco.API.Controllers
 
         private string GetImageUdis(HttpFileCollection images)
         {
+            if (string.IsNullOrWhiteSpace(images[0].FileName))
+            {
+                return null;
+            }
+
             var udis = new List<string>();
-            var index = 0;
+            var index = 0;            
 
             foreach(var file in images)
             {
