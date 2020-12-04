@@ -25,7 +25,7 @@ const SearchView = (props) => {
             <PageHeader text="Search result" bgText="Result" />
             <div className="d-flex justify-content-center">
                 <p className="lead">
-                    You searched for: { getQuery() }
+                    We found {products.length} results for "{getQuery()}"
                 </p>
             </div>
             { isLoading ? <div>Loading...</div> :
